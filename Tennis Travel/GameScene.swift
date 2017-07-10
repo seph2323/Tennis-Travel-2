@@ -11,7 +11,6 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate
 {
-  var randomizer = SKSpriteNode(imageNamed: "Cartoon\(arc4random_uniform(4))")
     var tennisPlayerArray = [#imageLiteral(resourceName: "Cartoon Man"), #imageLiteral(resourceName: "Cartoon Alien"), #imageLiteral(resourceName: "Cartoon Penguin"), #imageLiteral(resourceName: "Cartoon Flower")]
     var tennisBall = SKShapeNode()
     var tennisRacket1 = SKSpriteNode()
@@ -36,7 +35,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         physicsWorld.contactDelegate = self
         
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-        
+        var randomizer = arc4random_uniform(UInt32(tennisPlayerArray.count))
+
         createBackground()
         makeTennisBall()
         makeRacket1()
@@ -309,6 +309,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         tennisRacket1.name = "tennisRacket1"
         tennisRacket1.physicsBody = SKPhysicsBody(rectangleOf: tennisRacket1.size)
         tennisRacket1.physicsBody?.isDynamic = false
+        var generatedImage = tennisPlayerArray[randomizer]
         addChild(tennisRacket1)
     }
     
@@ -319,6 +320,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         tennisRacket2.name = "tennisRacket2"
         tennisRacket2.physicsBody = SKPhysicsBody(rectangleOf: tennisRacket2.size)
         tennisRacket2.physicsBody?.isDynamic = false
+        var generatedImage = tennisRacket2[""]
         addChild(tennisRacket2)
     }
     
@@ -403,10 +405,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         let generatedImage = image[randomImage]
         
-        tennisRacket1 = (randomImage as AnyObject) as! SKSpriteNode
-        
-        tennisRacket2 = (randomImage as AnyObject) as! SKSpriteNode
-
+       
     }
 }
 
