@@ -402,6 +402,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         let randomImage = Int(arc4random_uniform(imageRange))
         
         let generatedImage = image[randomImage]
+        
+        tennisRacket1 = (randomImage as AnyObject) as! SKSpriteNode
+        
+        tennisRacket2 = (randomImage as AnyObject) as! SKSpriteNode
+
     }
 }
 
