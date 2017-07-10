@@ -393,7 +393,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         topPlayerScoreBoard.text = "Player 1: " + String(topPlayerGamesWon)
     }
     
-    func randomImage()
+   func randomImage()
     {
         let image: NSArray = [UIImage(named: "Cartoon Man")!, UIImage(named: "Cartoon Alien")!, UIImage(named: "Cartoon Flower")!, UIImage(named: "Cartoon Penguin")!]
         
@@ -401,7 +401,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate
         
         let randomImage = Int(arc4random_uniform(imageRange))
         
-        let generatedImage = image.object(at: randomImage)
+        let generatedImage = image[randomImage]
     }
 }
 
